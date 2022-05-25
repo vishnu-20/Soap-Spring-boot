@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.api.soap.address.com/model" targetNamespace="http://www.api.soap.address.com/model" elementFormDefault="qualified">
+
+	<xs:element name="GetProductAvailabilityInputType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Event" type="xs:string" />
+				<xs:element name="Data" type="tns:GetProductAvailabilityInputDataType" />
+			</xs:sequence>
+		</xs:complexType>
+
+	</xs:element>
+
+	<xs:complexType name="GetProductAvailabilityInputDataType">
+		<xs:sequence>
+			<xs:element name="KDAddressId" type="xs:string" />
+			<xs:element name="Portal" type="xs:int" />
+			<xs:element name="PostCode" type="xs:string" />
+			<xs:element name="City" type="xs:string" />
+			<xs:element name="SubCity" type="xs:string" />
+			<xs:element name="District" type="xs:string" />
+			<xs:element name="Street" type="xs:string" />
+			<xs:element name="HouseNumber" type="xs:string" />
+			<xs:element name="HouseNumberAddition" type="xs:string" />
+			<xs:element name="AreaCode" type="xs:string" />
+			<xs:element name="PhoneNumber" type="xs:string" />
+			<xs:element name="ExistingCustomerTASI" type="xs:string" />
+			<xs:element name="ExistingCustomerTN" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="GetProductAvailabilityOutputType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Event" type="xs:string" />
+				<xs:element name="Data" type="tns:GetProductAvailabilityOutputDataType" />
+				<xs:element name="Statue" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:complexType name="GetProductAvailabilityOutputDataType">
+		<xs:sequence>
+			<xs:element name="KDAvailabilityType" type="tns:KDAvailabilityType" />
+			<xs:element name="KDCallStatus" type="xs:int" />
+			<xs:element name="FNAvailablity" type="tns:FNAvailablityType" />
+			<xs:element name="FNCallStatus" type="xs:string" />
+			<xs:element name="SubCity" type="xs:string" />
+			<xs:element name="District" type="xs:string" />
+			<xs:element name="Street" type="xs:string" />
+			<xs:element name="HouseNumber" type="xs:string" />
+			<xs:element name="HouseNumberAddition" type="xs:string" />
+			<xs:element name="AreaCode" type="xs:string" />
+			<xs:element name="PhoneNumber" type="xs:string" />
+			<xs:element name="ExistingCustomerTASI" type="xs:string" />
+			<xs:element name="ExistingCustomerTN" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="KDAvailabilityType">
+		<xs:sequence>
+			<xs:element name="ServiceCategoryInfo" type="tns:ServiceCategoryUInfoType" maxOccurs="unbounded" />
+			<xs:element name="objectTags" type="tns:ObjectTagType" maxOccurs="unbounded" />
+			<xs:element name="Buildingifo" type="tns:BuildingInfoType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FNAvailablityType">
+		<xs:sequence>
+
+			<xs:element name="ResultCode" type="xs:string" />
+			<xs:element name="Resulttext" type="xs:string" />
+			<xs:element name="AvailabilityInformation" type="tns:AvilabilityInformationType" maxOccurs="unbounded" />
+			<xs:element name="NumberHits" type="xs:string" />
+			<xs:element name="AdditionalInformation" type="tns:AdditionalInformationType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AvilabilityInformationType">
+		<xs:sequence>
+
+			<xs:element name="AvailabilityDetails" type="tns:AvailabilityDetailsType" />
+			<xs:element name="VoipAvailability" type="xs:string" />
+			<xs:element name="AreaCode" type="xs:string" />
+			<xs:element name="Asb" type="xs:string" />
+			<xs:element name="HvtInformation" type="tns:HvtInformationType" />
+			<xs:element name="AddressRange" type="tns:AddressRangeType" />
+			<xs:element name="KvzInformation" type="tns:KvzInformationType" />
+			<xs:element name="MfgInformation" type="tns:MfgInformationType" />
+			<xs:element name="AdditionalInformation" type="tns:AdditionalInformationType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="HvtInformationType">
+		<xs:sequence>
+
+			<xs:element name="CableType" type="xs:string" />
+			<xs:element name="HvtTnb" type="xs:string" />
+			<xs:element name="HvtRegion" type="xs:string" />
+			<xs:element name="HvtPostCode" type="xs:string" />
+			<xs:element name="HvtCity" type="xs:string" />
+			<xs:element name="HvtStreet" type="xs:string" />			
+			<xs:element name="AdditionalInformation" type="tns:AdditionalInformationType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AddressRangeType">
+		<xs:sequence>
+
+			<xs:element name="Street" type="xs:string" />
+			<xs:element name="StreetSide" type="xs:string" />
+			<xs:element name="HousenumberForm" type="xs:string" />
+			<xs:element name="HouseNumberAdditionForm" type="xs:string" />
+			<xs:element name="HousenumberUntil" type="xs:string" />
+			<xs:element name="Postcode" type="xs:string" />
+			<xs:element name="City" type="xs:string" />
+			<xs:element name="SubCity" type="xs:string" />
+			<xs:element name="District" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KvzInformationType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="xs:string" />
+			<xs:element name="Postcode" type="xs:string" />
+			<xs:element name="City" type="xs:string" />
+			<xs:element name="Street" type="xs:string" />
+			<xs:element name="HousenumberForm" type="xs:string" />
+			<xs:element name="HouseNumberAddition" type="xs:string" />
+			<xs:element name="LoanDetails" type="xs:string" />
+			<xs:element name="AdditionalInformation" type="tns:AdditionalInformationType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MfgInformationType">
+		<xs:sequence>
+
+			<xs:element name="Identifier" type="xs:string" />
+			<xs:element name="Postcode" type="xs:string" />
+			<xs:element name="City" type="xs:string" />
+			<xs:element name="Street" type="xs:string" />
+			<xs:element name="HousenumberForm" type="xs:string" />
+			<xs:element name="HouseNumberAddition" type="xs:string" />
+			<xs:element name="LoanDetails" type="xs:string" />
+			<xs:element name="AdditionalInformation" type="tns:AdditionalInformationType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="AvailabilityDetailsType">
+		<xs:sequence>
+
+			<xs:element name="AvailabilityDetail" type="tns:AvailabilityDetailType" maxOccurs="unbounded" />
+
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AvailabilityDetailType">
+		<xs:sequence>
+
+			<xs:element name="Product" type="xs:string" />
+			<xs:element name="Resale" type="xs:boolean" />
+			<xs:element name="Upstream" type="xs:integer" />
+			<xs:element name="DownStream" type="xs:integer" />
+			<xs:element name="AvailabilityIndicator" type="xs:string" />
+			<xs:element name="AvailabilityReason" type="xs:string" />
+			<xs:element name="RfoDate" type="xs:date" />
+			<xs:element name="BandwidthEnhancementDate" type="xs:date" />
+			<xs:element name="PortingEnhancementDate" type="xs:date" />
+			<xs:element name="CriticalAbsorbability" type="xs:boolean" />
+			<xs:element name="BandwidthDeterminationType" type="xs:string" />
+			<xs:element name="Customertype" type="xs:string" />
+			<xs:element name="Priority" type="xs:integer" />
+			<xs:element name="CurrentOffer" type="xs:boolean" />
+			<xs:element name="AvailabilityOption" type="tns:AviailabilityOptionType" maxOccurs="unbounded"/>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AdditionalInformationType">
+		<xs:sequence>
+
+			<xs:element name="Key" type="xs:string" />
+			<xs:element name="Value" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="AviailabilityOptionType">
+		<xs:sequence>
+
+			<xs:element name="OptionName" type="xs:string" />
+			<xs:element name="AvailabilityIndicator" type="xs:string" />
+			<xs:element name="AvailabilityReason" type="xs:string" />
+			<xs:element name="RfoDaten" type="xs:date" />
+			<xs:element name="PortextentionDate" type="xs:date" />
+			<xs:element name="AdditionalInformation" type="tns:AdditionalInformationType" maxOccurs="unbounded" />
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ServiceCategoryUInfoType">
+		<xs:sequence>
+
+			<xs:element name="ServiceCategory" type="xs:string" />
+			<xs:element name="ProviderType" type="xs:string" />
+			<xs:element name="Marketability" type="xs:string" />
+			<xs:element name="MarketingText" type="xs:string" />
+			<xs:element name="MieterBonus" type="xs:boolean" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ObjectTagType">
+		<xs:sequence>
+
+			<xs:element name="Key" type="xs:string" />
+			<xs:element name="Value" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BuildingInfoType">
+		<xs:sequence>
+
+			<xs:element name="ObjectCategory" type="xs:string" />
+			<xs:element name="ObjectCategoryPresentationTxt" type="xs:string" />
+			<xs:element name="MaxUnits" type="xs:integer" />
+			<xs:element name="SoldUnits" type="xs:integer" />
+			<xs:element name="FreeUnits" type="xs:integer" />
+			<xs:element name="NdpState" type="xs:string" />
+			<xs:element name="NdpStatePresentationText" type="xs:string" />
+			<xs:element name="ObjectType" type="xs:string" />
+			<xs:element name="NvType" type="xs:string" />
+			<xs:element name="ContractType" type="xs:string" />
+			<xs:element name="Flags" type="tns:FlagType" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="FlagType">
+		<xs:sequence>
+
+			<xs:element name="Flag" type="xs:string" />
+			<xs:element name="ObjectFlagPresentationTxt" type="xs:string" />
+			<xs:element name="description" type="xs:string" />
+
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

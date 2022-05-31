@@ -29,7 +29,7 @@ public class AddressConfig {
 	  public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) 
 	  {
 	    DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-	    wsdl11Definition.setPortTypeName("AddressEndPoint");
+	    wsdl11Definition.setPortTypeName("Address");
 	    wsdl11Definition.setLocationUri("/address");
 	    wsdl11Definition.setTargetNamespace("http://www.api.soap.address.com/model");
 	    wsdl11Definition.setSchema(countriesSchema);

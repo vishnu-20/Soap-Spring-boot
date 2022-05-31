@@ -21,7 +21,7 @@ public class AddressEndPoint {
 	@PayloadRoot(namespace = NAMESPACE_URI,localPart = "GetProductAvailabilityInputType")
 	@ResponsePayload
 	public GetProductAvailabilityOutputType getOutput (@RequestPayload GetProductAvailabilityInputType availabilityInputType) {
-		return null;
+		return addressService.availabilityOutputType();
 		
 	}
 }
